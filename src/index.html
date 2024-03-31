@@ -1,96 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bright App</title>
-<link rel="icon" type="image/png" href="https://hub.grupobright.com/wp-content/uploads/2023/11/512.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bright App</title>
+  <link rel="icon" type="image/png" href="https://hub.grupobright.com/wp-content/uploads/2023/11/512.png">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<!-- Container do formulário de login -->
 <div class="login-container">
+  
+  <!-- Caixa do formulário de login -->
   <div class="login-box">
     <div class="login-logo">
       <img src="https://hub.grupobright.com/wp-content/uploads/2023/11/512.png" alt="BRIGHT Logo">
     </div>
-    <input class="input" type="ip" placeholder="IP" name="ip" id="inputIP">
-    <!-- <div class="spacer"> </div> -->
-    <!-- <input class="input" type="password" placeholder="SENHA" name="password"> -->
-
-    <div class="spacer"> </div>
-    <a href="#"><input type="submit" value="connect" class="btn" id="connectBtn"></a>
+    <input type="text" placeholder="IP" name="ip">
+    <input type="password" placeholder="SENHA" name="password">
+    <div class="spacer"></div>
+    <a href="#"><input type="submit" value="CONECTAR" class="btn"></a>
     <a href="https://grupobright.com/dashboard" target="_blank"><input type="submit" value="CRIAR MAQUINA BRIGHT" class="btn"></a>
   </div>
+  
+  <!-- Ícone de engrenagem para configurações -->
+  <div class="settings-icon" id="toggleSettings">
+    <img src="gear_icon.png" alt="Configurações" href="#">
+  </div>
+
+  <!-- Campos adicionais ocultos -->
+  <div class="additional-fields hidden">
+    <label for="bitrate">Bitrate (Mbps)</label>
+    <input type="text" id="bitrate" name="bitrate" placeholder="6">
+  
+    <label for="height">Height</label>
+    <input type="text" id="height" name="height" placeholder="1080">
+  
+    <label for="width">Width</label>
+    <input type="text" id="width" name="width" placeholder="1920">
+    <a href="#"><input type="submit" value="APLICAR" class="btn-small"></a>
+  </div>
+  
 </div>
 
-</body>
-<style>
-  :root {
-    --login-box-width: 350px; /* Adjust the width as needed */
-  }
+<script>
+    // Este script adicionará funcionalidade ao ícone de engrenagem
+    document.addEventListener('DOMContentLoaded', function() {
+      var settingsIcon = document.getElementById('toggleSettings'); // Certifique-se de que o ID seja 'toggleSettings'
+      var additionalFields = document.querySelector('.additional-fields');
+      
+      settingsIcon.addEventListener('click', function() {
+        // Isto alternará a visibilidade dos campos adicionais
+        additionalFields.classList.toggle('hidden');
+      });
+    });
+  </script>
   
-  body {
-    margin: 0;
-    padding: 0;
-    background: #000;
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .login-container {
-    text-align: center;
-    color: white;
-  }
-  
-  .login-box {
-    width: var(--login-box-width);
-    background: rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    position: relative;
-  }
-  
-  .input {
-    background: #2F2F2F;
-    color: white;
-    padding: 15px;
-    margin-bottom: 10px;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    width: calc(100% - 30px);
 
-  }
-  
-  .btn {
-    background: #2F2F2F;
-    color: white;
-    cursor: pointer;
-    border: none;
-    padding: 15px;
-    width: calc(100% - 30px);
-    border-radius: 5px;
-    margin-top: 5px;
-  }
-  
-  .btn:hover {
-    background: #1c1c1c;
-  }
-  
-  .login-logo img {
-    width: 150px; /* Adjusted logo size */
-    height: auto;
-    margin-bottom: 20px;
-  }
-  
-  .spacer {
-    display: block;
-    height: 10px; /* Adjust the height to control space */
-  }
-  
-</style>
+</body>
 </html>
